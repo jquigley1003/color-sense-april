@@ -8,6 +8,14 @@
 /.bundle
 
 # Ignore all logfiles and tempfiles.
-/log/*
-!/log/.keep
+
+# Ignore all logfiles and tempfiles.
+.DS_Store
+node_modules
+dist
+.tmp
+.sass-cache
+bower_components
+/log/*.log
 /tmp
+public/assets
