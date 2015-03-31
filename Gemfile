@@ -23,7 +23,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'bower-rails'
 gem 'angular-rails-templates'
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', '~> 3.2.0'
+gem "twitter-bootstrap-rails"
 gem 'd3-rails'
 gem 'font-awesome-sass'
 

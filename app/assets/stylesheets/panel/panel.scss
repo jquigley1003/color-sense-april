@@ -1,0 +1,10 @@
+// overrides Bootstrap
+.panel {
+    box-shadow: 0 0 3px rgba(0,0,0,.1);
+    .panel-heading {
+        text-transform: uppercase;
+    }
+    .panel-title {
+        font-size: 14px;
+    }
+}
