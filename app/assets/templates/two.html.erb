@@ -1,0 +1,26 @@
+<div class="page">
+    <section class="panel panel-default">
+        <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Step Two Will Go Here</strong>        
+        </div>
+        <div class="col-lg-9" ng-show="myToggle">
+          <%= image_tag("sunlight.jpg", alt: "", class: "img-responsive") %>
+        </div>
+        <div class="col-lg-3" ng-show="myToggle">
+          <button ng-click="toggle()">Click Here To Begin</button>
+          <p>Pick a Popular Paint Brand</p>
+          <%= image_tag("color-wheel.png", alt: "", class: "img-responsive") %>
+        </div>
+        <div ng-show="!myToggle">
+            <button ng-click="toggle()">Back to Step Two Instructions</button>
+            <div class="hccp-outerdiv">
+                <canvas class="hccp-canvas img-responsive" id="hccp-FindCanvasColor" ng-mouseover="pickColor()"></canvas>
+                <div class="hccp-innerdiv">
+                    <br>
+                    <p>Step Two Information Goes Here</p>
+                </div>
+                <br>
+                <div class="hccp-resetdiv"></div>
+            </div>
+        </div>        
+    </section> 
+</div>

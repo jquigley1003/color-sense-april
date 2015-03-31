@@ -10,7 +10,7 @@ angular.module('AngularRails')
 
   $scope.pickColor = function(){
     var img = new Image();
-    img.src = 'color-wheel.png';
+    img.src = "/assets/color-wheel-866a4dc055b0ac31384b767e20f770cf.png";
     var canvas = document.getElementById('hccp-FindCanvasColor');
     var context = canvas.getContext('2d');
 

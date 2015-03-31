@@ -1,39 +1,67 @@
 <div class="page">
-  <nav class="navbar navbar-default" role="navigation">TEST Navigation
-    <ul class="nav navbar-nav">
-      <li><a href="#">Next Page</a></li>
-    </ul>
-  </nav>
-
     <section class="panel panel-default">
-        <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Step One Will Go Here</strong>        
+        <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Home Page Will Go Here</strong>        
         </div>
-        <div class="col-lg-9" ng-show="myToggle">
-          <%= image_tag("paint-colors.jpg", alt: "", class: "img-responsive") %>
-        </div>
-        <div class="col-lg-3" ng-show="myToggle">
-          <button ng-click="toggle()">Click Here To Begin</button>
-          <p>Start by choosing your desired colors</p>
-          <%= image_tag("color-wheel.png", alt: "", class: "img-responsive") %>
-        </div>
-        <div ng-show="!myToggle">
-          <button ng-click="toggle()">Back to Step One Instructions</button>
-          <div class="hccp-outerdiv">
-            <canvas class="hccp-canvas" id="hccp-FindCanvasColor" ng-mouseover="pickColor()"></canvas>
-            <div class="hccp-innerdiv">
-            <br>
-            <p>On Hover <span id="hccp-hoverColorFont">Text Color</span></p>
-            <p class="hccp-colorbar" id="hccp-hoverColorBackground">Background Color</p>
-            <p>RGB: <input type="text" id="hccp-hoverColorRGB"></input></p>
-            <p>HEX: <input type="text" id="hccp-hoverColorHEX"></input></p>
-            <br>
-            <p>On Click <span id="hccp-clickColorFont">Text Color</span></p>
-            <p class="hccp-colorbar" id="hccp-clickColorBackground">Background Color</p>
-            <p>RGB: <input type="text" id="hccp-clickColorRGB"></input></p>
-            <p>HEX: <input type="text" id="hccp-clickColorHEX"></input></p>
-            </div>
-            <br>
-            <div class="hccp-resetdiv"></div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-9">
+                        <h3 class="text-thin">With Color Sense, we will use four DIY existing methods to find your paint color.</h3>
+                        <script>
+
+                          var w = 960,
+                              h = 500,
+                              z = 20,
+                              x = w / z,
+                              y = h / z;
+
+                          var svg = d3.select(".col-lg-9").append("svg")
+                              .attr("width", w)
+                              .attr("height", h);
+
+                          svg.selectAll("rect")
+                              .data(d3.range(x * y))
+                            .enter().append("rect")
+                              .attr("transform", translate)
+                              .attr("width", z)
+                              .attr("height", z)
+                              .style("fill", function(d) { return d3.hsl(d % x / x * 360, 1, Math.floor(d / x) / y); })
+                              .on("mouseover", mouseover);
+
+                          function translate(d) {
+                            return "translate(" + (d % x) * z + "," + Math.floor(d / x) * z + ")";
+                          }
+
+                          function mouseover(d) {
+                            this.parentNode.appendChild(this);
+
+                            d3.select(this)
+                                .style("pointer-events", "none")
+                              .transition()
+                                .duration(750)
+                                .attr("transform", "translate(480,480)scale(23)rotate(180)")
+                              .transition()
+                                .delay(1500)
+                                .attr("transform", "translate(240,240)scale(0)")
+                                .style("fill-opacity", 0)
+                                .remove();
+                          }
+
+                        </script>
+                    </div>
+                    <div class="col-lg-3">
+                        <h3 class="text-thin">With Color Sense, we will use four DIY existing methods to find your paint color.</h3>
+                        <div class="divider divider-dashed"></div>
+                        <p>1) Refine Your Palette</p>
+                        <progressbar class="progressbar-xs progress-rounded" value="25" type="success"></progressbar>
+                        <p>2) Select Your Paint</p>
+                        <progressbar class="progressbar-xs progress-rounded" value="50" type="info"></progressbar>
+                        <p>3) Test Your Colors</p>
+                        <progressbar class="progressbar-xs progress-rounded" value="75" type="warning"></progressbar>
+                        <p>4) Add to Your Favorites</p>
+                        <progressbar class="progressbar-xs progress-rounded" value="100" type="danger"></progressbar>
+                        <p>Rather than being confounded finding that elusive "right" color and shade, we will explain and simplify the frontier of color selection.</p><p>By knowing where to start, you can be inspired!</p>                        
+                    </div>
+                </div>
             </div>
         </div>        
     </section> 
